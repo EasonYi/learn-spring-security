@@ -5,7 +5,6 @@ import org.springframework.core.Ordered;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-//@EnableWebMvc
 @Configuration
 public class LssWebMvcConfiguration implements WebMvcConfigurer {
 
