@@ -34,16 +34,16 @@ public class LssSecurityConfig extends WebSecurityConfigurerAdapter {
 
     //
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {// @formatter:off
-        final UserBuilder userBuilder = org.springframework.security.core.userdetails.User.builder();
-        final UserDetails user = userBuilder.username("user").password(passwordEncoder().encode("pass")).roles("USER").build();
-        final UserDetails admin = userBuilder.username("admin").password(passwordEncoder().encode("pass")).roles("ADMIN").build();
-        
-        final UserDetailsService userDetailsService = new InMemoryUserDetailsManager(user, admin);
-        
-        auth.userDetailsService(userDetailsService);
-    }// @formatter:on
+//    @Autowired
+//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {// @formatter:off
+//        final UserBuilder userBuilder = org.springframework.security.core.userdetails.User.builder();
+//        final UserDetails user = userBuilder.username("user").password(passwordEncoder().encode("pass")).roles("USER").build();
+//        final UserDetails admin = userBuilder.username("admin").password(passwordEncoder().encode("pass")).roles("ADMIN").build();
+//        
+//        final UserDetailsService userDetailsService = new InMemoryUserDetailsManager(user, admin);
+//        
+//        auth.userDetailsService(userDetailsService);
+//    }// @formatter:on
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {// @formatter:off
