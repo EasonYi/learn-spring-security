@@ -1,20 +1,22 @@
 package com.baeldung.lss;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Test;
-
+import com.baeldung.lss.spring.LssApp4;
 import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.authentication.FormAuthConfig;
 import com.jayway.restassured.response.Response;
 import com.jayway.restassured.specification.RequestSpecification;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
 
 /**
- * This LiveTest requires:
- * * a MySql server running in the environment(e.g. `docker run -p 3306:3306 --name bael-mysql-57 -e MYSQL_ALLOW_EMPTY_PASSWORD=true -e MYSQL_USER=tutorialuser -e MYSQL_PASSWORD=tutorialmy5ql -e MYSQL_DATABASE=lss114 mysql:latest`)
- * * the service running
+ * This Test class relies on HSQL DB and all integration tests in this class are run against
+ * in-memory HSQL DB instead of MySQL DB.
  */
+@SpringBootTest(classes = LssApp4.class,
+        webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class LiveTest {
 
     private static String APP_ROOT = "http://localhost:8081";
